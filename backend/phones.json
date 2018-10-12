@@ -1,0 +1,16 @@
+[
+  {
+    "title": "iPhone 7",
+    "description": "Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+    "color": "black",
+    "price": "1100",
+    "image": "https://ae01.alicdn.com/kf/HTB1EfuvwyCYBuNkHFCcq6AHtVXaj/Apple-IPhone-6S.jpg_640x640.jpg"
+  },
+  {
+    "title": "Samsung Galaxy S7",
+    "description": "Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+    "color": "white",
+    "price": "1100",
+    "image": "https://ae01.alicdn.com/kf/HTB1EfuvwyCYBuNkHFCcq6AHtVXaj/Apple-IPhone-6S.jpg_640x640.jpg"
+  }
+]
