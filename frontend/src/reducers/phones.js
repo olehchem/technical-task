@@ -1,20 +1,5 @@
 const initialState = {
-  list: [
-    {
-      title: 'iPhone 7',
-      description:
-        'Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ',
-      color: 'black',
-      price: '1100',
-    },
-    {
-      title: 'Samsung Galaxy S7',
-      description:
-        'Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ',
-      color: 'white',
-      price: '1100',
-    },
-  ],
+  list: null,
   activePhoneId: null,
   isFetching: false,
 };
