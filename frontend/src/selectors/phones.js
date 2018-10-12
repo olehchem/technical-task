@@ -3,6 +3,8 @@ import { createSelector } from 'reselect';
 const phonesSelector = state => state.phones;
 
 export const phonesListSelector = createSelector(phonesSelector, phones => phones.list);
+export const isPhonesFetching = createSelector(phonesSelector, phones => phones.isFetching);
+
 export const activePhoneIdSelector = createSelector(phonesSelector, phones => phones.activePhoneId);
 
 export const activePhoneSelector = createSelector(

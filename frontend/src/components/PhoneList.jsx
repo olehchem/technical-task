@@ -23,17 +23,24 @@ const ListHeader = styled.h2`
 `;
 
 class PhoneList extends Component {
+  componentDidMount() {
+    this.props.fetchPhones();
+  }
+
   render() {
-    const { phones } = this.props;
+    const { phones, isFetching } = this.props;
 
     return (
       <PhoneListWrapper>
         <ListHeader>Phones List</ListHeader>
-        <PhoneListContainer>
-          {phones.map(phone => (
-            <PhoneTile {...phone} />
-          ))}
-        </PhoneListContainer>
+        {isFetching && <span>Loading</span>}
+        {phones && (
+          <PhoneListContainer>
+            {phones.map(phone => (
+              <PhoneTile {...phone} />
+            ))}
+          </PhoneListContainer>
+        )}
       </PhoneListWrapper>
     );
   }
@@ -44,7 +51,9 @@ PhoneList.defaultProps = {
 };
 
 PhoneList.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
   phones: PropTypes.arrayOf(PropTypes.any),
+  fetchPhones: PropTypes.func.isRequired,
 };
 
 export default PhoneList;

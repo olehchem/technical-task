@@ -8,5 +8,6 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     'react/prefer-stateless-function': false,
+    'react/destructuring-assignment': false,
   },
 };

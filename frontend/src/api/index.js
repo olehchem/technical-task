@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-const baseUrl = 'localhost:4000';
+const baseUrl = 'http://localhost:4000';
 
 const phones = `${baseUrl}/phones`;
 

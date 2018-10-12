@@ -4,13 +4,19 @@ import { withRouter } from 'react-router-dom';
 
 import PhoneList from '../components/PhoneList';
 
-import { phonesListSelector } from '../selectors';
+import { fetchPhones } from '../actions';
+import { phonesListSelector, isPhonesFetching } from '../selectors';
 
 const PhoneListContainer = props => <PhoneList {...props} />;
 
-const mapStateToProps = state => ({ phones: phonesListSelector(state) });
+const mapStateToProps = state => ({
+  isFetching: isPhonesFetching(state),
+  phones: phonesListSelector(state),
+});
 
-const mapDispathToProps = dispatch => ({});
+const mapDispathToProps = dispatch => ({
+  fetchPhones: () => dispatch(fetchPhones()),
+});
 
 export default withRouter(
   connect(
