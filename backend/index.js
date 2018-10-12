@@ -2,6 +2,7 @@ const express = require("express");
 const phonesData = require("./phones.json");
 
 const PORT = 4000;
+const DELAY = 1500;
 
 const app = express();
 
@@ -17,7 +18,9 @@ app.use(function(req, res, next) {
 });
 
 app.get("/phones", (req, res) => {
-  res.json(phonesData);
+  setTimeout(() => {
+    res.json(phonesData);
+  }, DELAY);
 });
 
 app.listen(PORT, () => {
