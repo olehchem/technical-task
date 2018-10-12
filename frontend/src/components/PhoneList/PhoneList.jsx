@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import PhoneTile from './PhoneTile/PhoneTile';
+import Spinner from '../Spinner';
+import PhoneTile from '../PhoneTile';
 
 const PhoneListWrapper = styled.section`
   width: 1000px;
@@ -33,7 +34,7 @@ class PhoneList extends Component {
     return (
       <PhoneListWrapper>
         <ListHeader>Phones List</ListHeader>
-        {isFetching && <span>Loading</span>}
+        {isFetching && <Spinner />}
         {phones && (
           <PhoneListContainer>
             {phones.map(phone => (
