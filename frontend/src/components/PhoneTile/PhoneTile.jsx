@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const PhoneTileStyled = styled(Link)`
+const PhoneTileStyled = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
@@ -11,6 +10,8 @@ const PhoneTileStyled = styled(Link)`
   color: #4c4c4c;
   cursor: pointer;
   text-decoration: none;
+  width: 240px;
+  margin-bottom: 20px;
 
   :hover {
     box-shadow: 0 0 15px 6px rgba(0, 0, 0, 0.25);
@@ -52,13 +53,15 @@ const Divider = styled.div`
 `;
 
 class PhoneTile extends PureComponent {
+  onSelect = () => {
+    this.props.onSelect(this.props.id);
+  };
+
   render() {
-    const {
-      title, image, price, id,
-    } = this.props;
+    const { title, image, price } = this.props;
 
     return (
-      <PhoneTileStyled to={`/phones/${id}`}>
+      <PhoneTileStyled onClick={this.onSelect}>
         <Image src={image} />
         <DetailsContainer>
           <Title>{title}</Title>
@@ -86,6 +89,7 @@ PhoneTile.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default PhoneTile;

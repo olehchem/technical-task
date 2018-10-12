@@ -4,7 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 
 import './globalStyles';
 
-import PhoneDetailContainer from './containers/PhoneDetailContainer';
+import PhoneDetailsContainer from './containers/PhoneDetailsContainer';
 import PhoneListContainer from './containers/PhoneListContainer';
 
 import createStore from './createStore';
@@ -17,7 +17,7 @@ const App = () => (
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={PhoneListContainer} />
-        {/*   <Route path="/phones/:phoneId" component={PhoneDetailContainer} /> */}
+        <Route path="/phones/:phoneId" component={PhoneDetailsContainer} />
       </Switch>
     </Router>
   </Provider>

@@ -3,24 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 import PhoneTile from '../PhoneTile';
-
-const PhoneListWrapper = styled.section`
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100px;
-`;
+import { PageHeader, PageContainer } from '../styled';
 
 const PhoneListContainer = styled.section`
   display: flex;
-  width: 1000px;
   justify-content: space-between;
-`;
-
-const ListHeader = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
+  flex-wrap: wrap;
 `;
 
 class PhoneList extends Component {
@@ -29,20 +17,20 @@ class PhoneList extends Component {
   }
 
   render() {
-    const { phones, isFetching } = this.props;
+    const { phones, isFetching, onPhoneSelect } = this.props;
 
     return (
-      <PhoneListWrapper>
-        <ListHeader>Phones List</ListHeader>
+      <PageContainer>
+        <PageHeader>Phones List</PageHeader>
         {isFetching && <Spinner />}
         {phones && (
           <PhoneListContainer>
             {phones.map(phone => (
-              <PhoneTile {...phone} />
+              <PhoneTile {...phone} onSelect={onPhoneSelect} />
             ))}
           </PhoneListContainer>
         )}
-      </PhoneListWrapper>
+      </PageContainer>
     );
   }
 }
@@ -55,6 +43,7 @@ PhoneList.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   phones: PropTypes.arrayOf(PropTypes.any),
   fetchPhones: PropTypes.func.isRequired,
+  onPhoneSelect: PropTypes.func.isRequired,
 };
 
 export default PhoneList;

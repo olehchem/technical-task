@@ -1,4 +1,9 @@
-import { PHONE_FETCHING, PHONE_FETCHING_SUCCESS, PHONE_FETCHING_ERROR } from '../actions';
+import {
+  PHONE_FETCHING,
+  PHONE_FETCHING_SUCCESS,
+  PHONE_FETCHING_ERROR,
+  SELECT_PHONE,
+} from '../actions';
 
 const initialState = {
   list: null,
@@ -29,6 +34,13 @@ export default (state = initialState, action) => {
         isFetching: false,
         isFetchingError: true,
       };
+
+    case SELECT_PHONE: {
+      return {
+        ...state,
+        activePhoneId: action.payload.id,
+      };
+    }
 
     default:
       return state;

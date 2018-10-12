@@ -11,5 +11,6 @@ injectGlobal`
   body {
     height: 100%;
     line-height: 1.5;
+    background-color: #f7f7f7;
   }
 `;
