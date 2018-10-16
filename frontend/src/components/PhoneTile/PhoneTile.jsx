@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import {
+  PhoneName, Divider, DetailItemLabel, DetailItemValue,
+} from '../styled';
+
 const PhoneTileStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,12 +27,6 @@ const Image = styled.img`
   height: 200px;
 `;
 
-const Title = styled.span`
-  color: #006880;
-  font-size: 16px;
-  font-weight: bold;
-`;
-
 const DetailsContainer = styled.section`
   padding: 16px;
 `;
@@ -37,19 +35,6 @@ const DetailItem = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-`;
-
-const DetailItemLabel = styled.span`
-  font-size: 0.75em;
-`;
-const DetailItemValue = styled.span`
-  font-size: 0.75em;
-  font-weight: bold;
-`;
-
-const Divider = styled.div`
-  border: solid 0.5px #d8d8d8;
-  margin: 8px 0;
 `;
 
 class PhoneTile extends PureComponent {
@@ -64,7 +49,7 @@ class PhoneTile extends PureComponent {
       <PhoneTileStyled onClick={this.onSelect}>
         <Image src={image} />
         <DetailsContainer>
-          <Title>{title}</Title>
+          <PhoneName title={title}>{title}</PhoneName>
           <Divider />
           <DetailItem>
             <DetailItemLabel>Price</DetailItemLabel>

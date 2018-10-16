@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Spinner from '../Spinner';
-import { PageHeader } from '../styled';
+import {
+  PageHeader, PhoneName, Divider, DetailItemLabel, DetailItemValue,
+} from '../styled';
 
-const PageWrapper = styled.div``;
+const PhoneDetailsPage = styled.div`
+  font-size: 20px;
+`;
 
 const PhoneDetailsContainer = styled.div`
-  padding: 0 40px;
+  padding: 40px;
 
   @media only screen and (min-width: 1000px) {
     width: 800px;
@@ -41,28 +45,29 @@ class PhoneDetails extends Component {
     const { phone, isFetching } = this.props;
 
     return (
-      <PageWrapper>
+      <PhoneDetailsPage>
         {isFetching && <Spinner />}
         {phone && (
           <React.Fragment>
             <PhoneDetailsContainer>
-              <PageHeader>Phones List</PageHeader>
               <LargeImage src={phone.image} />
               <CharacteristicContainer>
                 <CharacteristicItem>
-                  <h1>{phone.title}</h1>
+                  <PhoneName>{phone.title}</PhoneName>
+                </CharacteristicItem>
+                <Divider />
+                <CharacteristicItem>
+                  <DetailItemLabel>{phone.description}</DetailItemLabel>
                 </CharacteristicItem>
                 <CharacteristicItem>
-                  <h1>{phone.description}</h1>
-                </CharacteristicItem>
-                <CharacteristicItem>
-                  <h1>{phone.description}</h1>
+                  <DetailItemLabel>{phone.description}</DetailItemLabel>
+                  <DetailItemValue>{phone.description}</DetailItemValue>
                 </CharacteristicItem>
               </CharacteristicContainer>
             </PhoneDetailsContainer>
           </React.Fragment>
         )}
-      </PageWrapper>
+      </PhoneDetailsPage>
     );
   }
 }

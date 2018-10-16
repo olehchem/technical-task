@@ -3,12 +3,22 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 import PhoneTile from '../PhoneTile';
-import { PageHeader, PageContainer } from '../styled';
+import { PageHeader } from '../styled';
+
+const PhoneListPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const PhoneListContainer = styled.section`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-around;
+
+  @media only screen and (min-width: 800px) {
+    width: 800px;
+  }
 `;
 
 class PhoneList extends Component {
@@ -20,7 +30,7 @@ class PhoneList extends Component {
     const { phones, isFetching, onPhoneSelect } = this.props;
 
     return (
-      <PageContainer>
+      <PhoneListPage>
         <PageHeader>Phones List</PageHeader>
         {isFetching && <Spinner />}
         {phones && (
@@ -30,7 +40,7 @@ class PhoneList extends Component {
             ))}
           </PhoneListContainer>
         )}
-      </PageContainer>
+      </PhoneListPage>
     );
   }
 }

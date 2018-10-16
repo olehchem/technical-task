@@ -1,4 +1,5 @@
 import axios from 'axios';
+import endpoints from '../api';
 
 export const PHONE_FETCHING = 'PHONE_FETCHING';
 export const PHONE_FETCHING_ERROR = 'PHONE_FETCHING_ERROR';
@@ -28,7 +29,7 @@ export function phoneFetchingSuccess(phones) {
 }
 
 export function fetchPhones() {
-  return (dispatch, getState, { endpoints }) => {
+  return (dispatch, getState) => {
     dispatch(phoneFetching());
 
     return axios(endpoints.phones)
