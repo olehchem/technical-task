@@ -1,31 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const Overlay = styled.div`
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
-`;
+import { Overlay, LoaderWrapper } from './styled';
 
-const LoaderWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const Loader = () => (
+const Loader = props => (
   <Overlay>
     <LoaderWrapper>
-      <ClipLoader size={100} color="#123abc" loading />
+      <ClipLoader size={props.size} color={props.color} loading />
     </LoaderWrapper>
   </Overlay>
 );
+
+Loader.defaultProps = {
+  size: 100,
+  color: '#123abc',
+};
+
+Loader.propTypes = {
+  size: PropTypes.number,
+  color: PropTypes.string,
+};
 
 export default Loader;
