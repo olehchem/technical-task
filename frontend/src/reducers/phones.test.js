@@ -1,5 +1,6 @@
 import reducer from '.';
 import * as actions from '../actions';
+import utils from '../testUitls';
 
 describe('phones reducer', () => {
   const INITIAL_STATE = {
@@ -8,7 +9,6 @@ describe('phones reducer', () => {
     isFetching: false,
     isFetchingError: false,
   };
-  const PHONES = [{ title: 'test', description: 'Lorem' }];
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {}).phones).toEqual(INITIAL_STATE);
@@ -42,13 +42,13 @@ describe('phones reducer', () => {
   it('should handle PHONE_FETCHING_SUCCESS action', () => {
     const expectedResult = {
       ...INITIAL_STATE,
-      list: PHONES,
+      list: utils.phones,
       isFetching: false,
       isFetchingError: true,
     };
     const action = {
       type: actions.PHONE_FETCHING_SUCCESS,
-      payload: { phones: PHONES },
+      payload: { phones: utils.phones },
     };
 
     expect(reducer(INITIAL_STATE, action).phones).toEqual(expectedResult);

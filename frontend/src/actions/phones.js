@@ -29,7 +29,7 @@ export function phoneFetchingSuccess(phones) {
 }
 
 export function fetchPhones() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(phoneFetching());
 
     return axios(endpoints.phones)

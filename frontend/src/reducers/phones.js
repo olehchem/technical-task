@@ -20,6 +20,7 @@ export default (state = initialState, action) => {
         isFetching: true,
         isFetchingError: false,
       };
+
     case PHONE_FETCHING_SUCCESS:
       return {
         ...state,
@@ -27,6 +28,7 @@ export default (state = initialState, action) => {
         isFetchingError: true,
         list: action.payload.phones,
       };
+
     case PHONE_FETCHING_ERROR:
       return {
         ...state,

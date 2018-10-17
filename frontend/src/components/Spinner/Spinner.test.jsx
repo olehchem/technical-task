@@ -8,12 +8,17 @@ import { Overlay, LoaderWrapper } from './styled';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-function setup(
-  props = {
+function setup(customProps) {
+  const defaultProps = {
     color: undefined,
     size: undefined,
-  },
-) {
+  };
+
+  const props = {
+    ...defaultProps,
+    ...customProps,
+  };
+
   const enzymeWrapper = mount(<Spinner {...props} />);
 
   return {
@@ -25,7 +30,7 @@ function setup(
 describe('<Spinner /> component', () => {
   it('render self and subcomponents with default props', () => {
     const { enzymeWrapper } = setup();
-    const defaultProps = {
+    const props = {
       color: '#123abc',
       size: 100,
     };
@@ -36,8 +41,8 @@ describe('<Spinner /> component', () => {
 
     const clipLoaderProps = enzymeWrapper.find(ClipLoader).props();
 
-    expect(clipLoaderProps.color).toBe(defaultProps.color);
-    expect(clipLoaderProps.size).toBe(defaultProps.size);
+    expect(clipLoaderProps.color).toBe(props.color);
+    expect(clipLoaderProps.size).toBe(props.size);
   });
 
   it('render with specific color', () => {

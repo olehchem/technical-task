@@ -3,16 +3,19 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import PhoneTile from '.';
-import {
-  PhoneTileContainer, Image, DetailsContainer, DetailItem,
-} from './styled';
-import {
-  PhoneName, Divider, DetailItemLabel, DetailItemValue,
-} from '../styled';
+import { PhoneTileContainer, Image } from './styled';
+import { PhoneName } from '../styled';
+
+import utils from '../../testUitls';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-function setup(props) {
+function setup(customProps) {
+  const defaultProps = {};
+  const props = {
+    ...defaultProps,
+    ...customProps,
+  };
   const enzymeWrapper = mount(<PhoneTile {...props} />);
 
   return {
@@ -22,42 +25,29 @@ function setup(props) {
 }
 
 describe('<PhoneTile /> component', () => {
-  const phoneModel = {
-    id: 'id-1',
-    title: 'iPhone 7',
-    description:
-      'Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ',
-    color: 'black',
-    price: 1100,
-    ram: '2 GB',
-    image: 'https://i.ebayimg.com/images/g/2BsAAOSwphNa2sGV/s-l1600.jpg',
-  };
-
   it('render self and subcomponents for a specific phone model', () => {
-    const { enzymeWrapper } = setup({ ...phoneModel });
+    const { enzymeWrapper } = setup(utils.phone);
 
     expect(enzymeWrapper.find(PhoneTileContainer).length).toBe(1);
 
     const ImageElement = enzymeWrapper.find(Image);
     expect(ImageElement.length).toBe(1);
-    expect(ImageElement.props().src).toBe(phoneModel.image);
+    expect(ImageElement.props().src).toBe(utils.phone.image);
 
     const PhoneNameElement = enzymeWrapper.find(PhoneName);
     expect(PhoneNameElement.length).toBe(1);
-    expect(PhoneNameElement.props().title).toBe(phoneModel.title);
-    expect(PhoneNameElement.text()).toBe(phoneModel.title);
-
-    // and so on
+    expect(PhoneNameElement.props().title).toBe(utils.phone.title);
+    expect(PhoneNameElement.text()).toBe(utils.phone.title);
   });
 
   it('shuold call onSelect function with phoneId on container click', () => {
-    const { enzymeWrapper, props } = setup({ ...phoneModel, onSelect: jest.fn() });
+    const { enzymeWrapper, props } = setup({ ...utils.phone, onSelect: jest.fn() });
 
     const container = enzymeWrapper.find(PhoneTileContainer);
     container.simulate('click');
 
     expect(enzymeWrapper.find(PhoneTileContainer).length).toBe(1);
-    expect(props.onSelect.mock.calls.length).toBe(1);
-    expect(props.onSelect).toBeCalledWith(phoneModel.id);
+    expect(props.onSelect).toBeCalled();
+    expect(props.onSelect).toBeCalledWith(utils.phone.id);
   });
 });
