@@ -17,10 +17,10 @@ class PhoneList extends Component {
 
     return (
       <PhoneListPage>
-        <PageHeader>Phones List</PageHeader>
+        <PageHeader className="page-header">Phones List</PageHeader>
         {isFetching && <Spinner />}
         {phones && (
-          <PhoneListContainer>
+          <PhoneListContainer className="phone-list-container">
             {phones.map(phone => (
               <PhoneTile {...phone} onSelect={onPhoneSelect} />
             ))}

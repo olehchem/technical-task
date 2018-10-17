@@ -19,7 +19,7 @@ class PhoneTile extends PureComponent {
     } = this.props;
 
     return (
-      <PhoneTileContainer onClick={this.onSelect}>
+      <PhoneTileContainer onClick={this.onSelect} className="phone-tile">
         <Image src={image} />
         <DetailsContainer>
           <PhoneName title={title}>{title}</PhoneName>

@@ -6,7 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { Overlay, LoaderWrapper } from './styled';
 
 const Loader = props => (
-  <Overlay>
+  <Overlay className="spinner">
     <LoaderWrapper>
       <ClipLoader size={props.size} color={props.color} loading />
     </LoaderWrapper>
