@@ -14,6 +14,8 @@ const spinnerSelector = '.spinner';
 const phoneListContainerSelector = '.phone-list-container';
 const pageTitleSelector = '.page-header';
 const phoneTileSelector = '.phone-tile';
+const phoneDetailsContainerSelector = '.phone-details';
+
 const PHONES_COUNT = 6;
 
 beforeAll(async () => {
@@ -52,20 +54,19 @@ describe('Phones list page', () => {
     expect(phonesCount).toBe(PHONES_COUNT);
   });
 
-  /* test('emphasize hovered phone tile', async () => {
+  test('emphasize hovered phone tile', async () => {
     await page.goto(routes.phonesList);
     await page.waitForSelector(phoneListContainerSelector);
     await page.hover(phoneTileSelector);
 
     const tileBoxShadow = await page.evaluate(
-      selector => document.querySelector(selector).style.boxShadow,
+      selector => window.getComputedStyle(document.querySelector(selector)).boxShadow,
       phoneTileSelector,
     );
 
-    console.log(tileBoxShadow);
+    expect(tileBoxShadow).toBe('rgba(0, 0, 0, 0.25) 0px 0px 15px 6px');
+  });
 
-    expect(tileBoxShadow).toBe('0 0 15px 6px rgba(0,0,0,0.25)');
-  }); */
   test('redirects to phone details after tile click', async () => {
     await page.goto(routes.phonesList);
     await page.waitForSelector(phoneListContainerSelector);
@@ -79,5 +80,10 @@ describe('Phone details page', () => {
   test('shows spinner while the phone details are being fetched', async () => {
     await page.goto(routes.phoneDetails.replace(':id', 'id-1'));
     await page.waitForSelector(spinnerSelector);
+  });
+
+  test('shows phone details', async () => {
+    await page.goto(routes.phoneDetails.replace(':id', 'id-1'));
+    await page.waitForSelector(phoneDetailsContainerSelector);
   });
 });

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.js",
-    "test": "jest",
+    "test": "jest --testPathIgnorePatterns ./end-to-end",
     "test:watch": "npm test -- --watch --verbose",
-    "test:end-to-end": "jest ./end-to-end --runInBand --detectOpenHandles"
+    "test:e2e": "jest ./e2e"
   },
   "author": "Oleh Chemerskyi",
   "license": "ISC",

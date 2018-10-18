@@ -30,7 +30,7 @@ class PhoneDetails extends Component {
         {isFetching && <Spinner />}
         {phone && (
           <React.Fragment>
-            <PhoneDetailsContainer>
+            <PhoneDetailsContainer className="phone-details">
               <LargeImage src={phone.image} />
               <CharacteristicContainer>
                 <CharacteristicItem>
