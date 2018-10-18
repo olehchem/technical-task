@@ -2,7 +2,7 @@ const express = require("express");
 const phonesData = require("./phones.json");
 
 const PORT = 4000;
-const DELAY = 1500;
+const DELAY = 800;
 
 const app = express();
 

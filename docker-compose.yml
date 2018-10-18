@@ -1,0 +1,30 @@
+version: "2"
+services:
+  server:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    command: npm start
+  ui:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    command: npm start
+  ui-unit-tests:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    command: npm test
+  ui-e2e-tests:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    command: npm run test:e2e
+    depends_on:
+      - ui
