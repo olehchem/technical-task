@@ -17,27 +17,37 @@ There are 2 more services:
 
 If you want build and run all the services run:
 `docker up`
+
 To stop:
 `docker down`
 
 #### Notes
 
-- The client server is spun up at localhost:3000.
-- The api server is spun up at localhost:4000
+- The client server is spun up at http://localhost:3000.
+- The api server is spun up at http://localhost:4000
 
 ### Without docker
 
-- Run backend
-- `cd backend`
-- `npm install`
-- `npm start`
+- Run backend:
+
+`cd backend`
+
+`npm install`
+
+`npm start`
+
 - Run ui
-- `cd frontend`
-- `npm install` or `yarn`
-- `npm start` or `yarn start`
+
+`cd frontend`
+
+`npm install` or `yarn`
+
+`npm start` or `yarn start`
+
 - Run ui tests
-- `cd frontend`
-- `npm test` or `yarn test`
+
+`npm test` or `yarn test`
+
 - Run end-to-end tests
-- `cd frontend`
-- `npm run test:e2e` or `yarn test:e2e`
+
+`npm run test:e2e` or `yarn test:e2e`
