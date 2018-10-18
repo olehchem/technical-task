@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.js",
-    "test": "jest --testPathIgnorePatterns ./end-to-end",
+    "test": "jest --testPathIgnorePatterns ./e2e",
     "test:watch": "npm test -- --watch --verbose",
     "test:e2e": "jest ./e2e"
   },

@@ -7,6 +7,8 @@ import PhoneTile from '../PhoneTile';
 import { PhoneListPage, PhoneListContainer } from './styled';
 import { PageHeader } from '../styled';
 
+import { PhonesType } from '../../types';
+
 class PhoneList extends Component {
   componentDidMount() {
     this.props.fetchPhones();
@@ -22,7 +24,7 @@ class PhoneList extends Component {
         {phones && (
           <PhoneListContainer className="phone-list-container">
             {phones.map(phone => (
-              <PhoneTile {...phone} onSelect={onPhoneSelect} />
+              <PhoneTile key={phone.id} {...phone} onSelect={onPhoneSelect} />
             ))}
           </PhoneListContainer>
         )}
@@ -37,7 +39,7 @@ PhoneList.defaultProps = {
 
 PhoneList.propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  phones: PropTypes.arrayOf(PropTypes.any),
+  phones: PhonesType,
   fetchPhones: PropTypes.func.isRequired,
   onPhoneSelect: PropTypes.func.isRequired,
 };

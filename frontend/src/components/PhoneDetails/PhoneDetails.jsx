@@ -10,9 +10,12 @@ import {
   CharacteristicContainer,
   CharacteristicItem,
 } from './styled';
+
 import {
   PhoneName, Divider, DetailItemLabel, DetailItemValue,
 } from '../styled';
+
+import { PhoneType } from '../../types';
 
 class PhoneDetails extends Component {
   componentDidMount() {
@@ -67,7 +70,7 @@ PhoneDetails.defaultProps = {
 
 PhoneDetails.propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  phone: PropTypes.shape({}),
+  phone: PhoneType,
   fetchPhones: PropTypes.func.isRequired,
   selectPhone: PropTypes.func.isRequired,
 };
