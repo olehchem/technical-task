@@ -29,22 +29,22 @@ You can run each service separately.
 
 #### Notes
 
-- The client is spun up at http://localhost:3000.
+- The client is spun up at http://localhost:3000
 - The api server is spun up at http://localhost:4000
 
 ### Without docker
 
 **Important:** Node.js > 8.x.x is required.
 
-- Run backend:
+- Run backend. The api server is spun up at http://localhost:4000
 
-`cd backend`
+  `cd backend`
 
-`npm install`
+  `npm install`
 
-`npm start`
+  `npm start`
 
-- Run ui. **Note:** You need run backend first
+- Run ui.  **Note:** You need run backend first. The client is spun up at http://localhost:3000
 
    `cd frontend`
 
