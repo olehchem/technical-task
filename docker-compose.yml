@@ -21,10 +21,3 @@ services:
       context: frontend
       dockerfile: Dockerfile
     command: npm test
-  ui-e2e-tests:
-    build:
-      context: frontend
-      dockerfile: Dockerfile
-    command: npm run test:e2e
-    depends_on:
-      - ui
