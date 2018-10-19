@@ -11,7 +11,9 @@ import utils from '../../testUitls';
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup(customProps) {
-  const defaultProps = {};
+  const defaultProps = {
+    onSelect: jest.fn()
+  };
   const props = {
     ...defaultProps,
     ...customProps,

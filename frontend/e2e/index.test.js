@@ -78,12 +78,12 @@ describe('Phones list page', () => {
 
 describe('Phone details page', () => {
   test('shows spinner while the phone details are being fetched', async () => {
-    await page.goto(routes.phoneDetails.replace(':id', 'id-1'));
+    await page.goto(routes.phoneDetails.replace(':id', 'uuid-1'));
     await page.waitForSelector(spinnerSelector);
   });
 
   test('shows phone details', async () => {
-    await page.goto(routes.phoneDetails.replace(':id', 'id-1'));
+    await page.goto(routes.phoneDetails.replace(':id', 'uuid-1'));
     await page.waitForSelector(phoneDetailsContainerSelector);
   });
 });

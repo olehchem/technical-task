@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { PhoneType } from '../../types';
-
 import {
   PhoneTileContainer, Image, DetailsContainer, DetailItem,
 } from './styled';
